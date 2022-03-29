@@ -453,11 +453,6 @@ methods: {
    text-align: center;
 }
 
- .form__legend {
-
-    text-align: center;
-}
-
 .colors {
     justify-content: center;
 }

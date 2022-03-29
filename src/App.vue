@@ -135,3 +135,17 @@ methods: {
 },
 };
 </script>
+
+<style lang="scss">
+  .header {
+  background-color: #272727;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+}
+
+ .header-shrink {
+     padding: 10px 0;
+    }
+</style>

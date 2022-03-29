@@ -130,8 +130,12 @@ computed: {
     font-size: 19px;
       }
 
+      .form__counter {
+        width: 70px;
+      }
           .form__counter button {
         width: 10px;
+        margin-left: 3px;
       }
         .cart__button {
         margin-top: 20px;
