@@ -12,5 +12,5 @@ git add -A
 git commit -m 'deploy'
 
 git push -f https://github.com/RaenProger/vue_skillbox_app.git master:gh-pages
-
+git push -f https://github.com/RaenProger/skillbox.git master
 cd - 

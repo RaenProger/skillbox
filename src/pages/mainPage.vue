@@ -148,6 +148,7 @@ this.loadProducts();
 
 <style lang="scss">
 
+/* preloader styles */
 .header__wrapper {
     display: flex;
     -webkit-box-align: end;
@@ -173,18 +174,22 @@ height: 100%;
 object-fit: contain;
 }
 
-/* preloader styles */
 .lds-facebook{
-  display: inline-block;
-  position: absolute;
-  width: 180px;
-  height: 180px;
+ position: fixed;
+   left: 0;
+   top: 0;
+   opacity: 1;
+   background: white;
+   width: 100%;
+   height: 100%;
+   z-index:0.1;
 }
+
 .lds-facebook div {
   display: inline-block;
   position: absolute;
   margin-left: 210%;
-  margin-top: 120%;
+  margin-top: 130%;
   left: 10px;
   width: 16px;
   background: green;
@@ -248,6 +253,7 @@ object-fit: contain;
 
 /* md-размер (<=991px) */
 @media (max-width: 991px) {
+
   .content__top--catalog {
     margin-left: 0px;
     text-align: center;
@@ -278,25 +284,11 @@ object-fit: contain;
     flex-wrap: wrap;
 }
 
-    .lds-facebook{
-      display: block;
-      position: absolute;
-      width: 180px;
-      height: 180px;
-    }
-
-    .lds-facebook div {
-      display: block;
-      position: absolute;
-      margin-left: 210%;
-      margin-top: 0%;
-
-    }
-
 }
 
 /* sm-размер (<=768px) */
 @media (max-width: 767px) {
+
   .catalog__list {
   padding: 0;
   list-style: none;
@@ -322,39 +314,11 @@ object-fit: contain;
     grid-template-columns: repeat(2,auto);
     grid-gap: 20px 30px;
 }
-
-    .lds-facebook{
-      display: block;
-      position: absolute;
-      width: 150px;
-      height: 180px;
-    }
-
-    .lds-facebook div {
-      display: block;
-      position: absolute;
-      margin-left: 210%;
-      margin-top: 0%;
-
-    }
 }
 
 /* xs-размер (<=575px) */
 @media (max-width: 575px) {
-     .lds-facebook{
-      display: block;
-      position: absolute;
-      width: 80px;
-      height: 180px;
-    }
 
-    .lds-facebook div {
-      display: block;
-      position: absolute;
-      margin-left: 210%;
-      margin-top: 0%;
-
-    }
     .catalog__list {
   padding: 0;
   list-style: none;

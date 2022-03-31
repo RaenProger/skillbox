@@ -449,6 +449,9 @@ methods: {
    text-align: center;
 }
 
+.form__legend {
+  text-align: center;
+}
    .item__price {
    text-align: center;
 }
