@@ -21,11 +21,11 @@
             </span>
 
             <ul class="colors colors--black">
-              <li class="colors__item" v-for="productColor in product.colors" v-bind:key="productColor.id">
+              <li class="colors__item" v-for="productColor in product.colors" v-bind:key="productColor.color.id">
                 <label class="colors__label">
                   <input class="colors__radio sr-only" type="radio"
-                   :value="productColor.id" v-model="color">
-                  <span class="colors__value" v-bind:style="{backgroundColor: productColor.code}">
+                   :value="productColor.color.id" v-model="color">
+                  <span class="colors__value" v-bind:style="{backgroundColor: productColor.color.code}">
                   </span>
                 </label>
               </li>
@@ -41,19 +41,26 @@
        props: [
       'product',
       ],
+       filters: {
+        numberFormat,
+      },
       data() {
         return {
-          color: '#73B6EA',
+          color: 0,
         };
       },
       methods: {
         goToPage,
         addProductToCart() {
-        this.$store.dispatch('addProductToCart', { productId: this.product.id, amount: 1 });
+        this.$store.dispatch('addProductToCart', {
+           productOfferId: this.product.offers[0].id,
+           colorId: this.color,
+            amount: 1,
+});
       },
       },
-      filters: {
-        numberFormat,
-      },
+        mounted() {
+          this.color = this.product.colors[0].color.id;
+        },
     };
     </script>

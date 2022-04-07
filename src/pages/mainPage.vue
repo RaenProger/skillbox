@@ -83,7 +83,7 @@ export default {
         products() {
         return this.productsData ? this.productsData.items.map((product) => ({
             ...product,
-            image: product.image.file.url,
+            image: product.preview.file.url,
           }))
         : [];
       },
@@ -125,9 +125,9 @@ export default {
               params: {
                 page: this.page,
                 limit: this.productsPerPage,
-                categoryId: this.filterCategoryId,
-                minPrice: this.filterPriceFrom,
-                maxPrice: this.filterPriceTo,
+                categoryId: this.filterCategoryId || undefined,
+                minPrice: this.filterPriceFrom || undefined,
+                maxPrice: this.filterPriceTo || undefined,
               },
         })
         // Сообщение загрузка товаров
@@ -175,25 +175,27 @@ object-fit: contain;
 }
 
 .lds-facebook{
- position: fixed;
-   left: 0;
-   top: 0;
-   opacity: 1;
-   background: white;
-   width: 100%;
-   height: 100%;
-   z-index:0.1;
+  position:relative;
+  width:100vw;
+  height:100vh;
+  z-index:1000;
+  top: 30%;
+  left: 30%;
 }
 
 .lds-facebook div {
-  display: inline-block;
-  position: absolute;
-  margin-left: 210%;
-  margin-top: 130%;
-  left: 10px;
-  width: 16px;
-  background: green;
-  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+
+    display: inline-block;
+    position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+    left: 10px;
+    width: 16px;
+    background: green;
+    -webkit-animation: lds-facebook 1.2s cubic-bezier(0,.5,.5,1) infinite;
+    animation: lds-facebook 1.2s cubic-bezier(0,.5,.5,1) infinite;
+        animation-delay: 0s;
+
 }
 .lds-facebook div:nth-child(1) {
   left: 8px;
@@ -319,6 +321,13 @@ object-fit: contain;
 /* xs-размер (<=575px) */
 @media (max-width: 575px) {
 
+.header__logo {
+    width: 150px;
+}
+.header__wrapper .header__tel {
+    margin-left: 0;
+    font-size: 13px;
+}
     .catalog__list {
   padding: 0;
   list-style: none;
@@ -330,6 +339,8 @@ object-fit: contain;
 
 .catalog__pagination {
   margin-top: 30px;
+  max-width: 100%;
+  margin-left: 50%;
 }
   .footer__social {
     margin-left: 30px;
@@ -343,6 +354,9 @@ object-fit: contain;
 .footer__data {
     list-style-image: initial;
     margin-top: -90px;
+    .footer__link {
+    font-size: 10px;
+}
 }
 }
 
